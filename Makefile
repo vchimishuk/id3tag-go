@@ -10,6 +10,8 @@ CGO_LDFLAGS=-lid3tag -lz
 CGO_OFILES=\
         id3_hlp.o\
 
-# CLEANFILES+=pi fib
-
 include $(GOROOT)/src/Make.pkg
+
+arch-install:
+	mkdir -p "$(DESTDIR)$(pkgdir)"
+	cp _obj/$(TARG).a "$(DESTDIR)$(pkgdir)"
