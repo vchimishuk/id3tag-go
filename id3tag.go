@@ -14,8 +14,8 @@ import (
 
 // Tag struct incapulate parsed file's metadata.
 type Tag struct {
-	cTag *_Ctype_struct_id3_tag
-	frames map[string] string
+	cTag   *_Ctype_struct_id3_tag
+	frames map[string]string
 }
 
 // Parse returns filled Tag object for the given music file.
@@ -31,7 +31,7 @@ func Parse(filename string) (tag *Tag, err os.Error) {
 	defer C.id3_file_close(cId3File)
 
 	tag = new(Tag)
-	tag.frames = make(map[string] string)
+	tag.frames = make(map[string]string)
 
 	// Read tag.
 	tag.cTag, err = C.id3_file_tag(cId3File)
@@ -49,7 +49,7 @@ func Parse(filename string) (tag *Tag, err os.Error) {
 		id := C.GoString(cId)
 		cVal := C.id3_hlp_get_frame_string(cFrame)
 		val := C.GoString(cVal)
-		
+
 		tag.frames[id] = val
 	}
 

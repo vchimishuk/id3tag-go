@@ -7,11 +7,11 @@ import (
 func TestParse(t *testing.T) {
 	const (
 		exampleFilename = "track.mp3"
-		artistExpected = "AC/DC"
-		albumExpected = "Let There Be Rock"
-		titleExpected = "Go Down"
-		numberExpected = "01"
-		yearExpected = "1977"
+		artistExpected  = "AC/DC"
+		albumExpected   = "Let There Be Rock"
+		titleExpected   = "Go Down"
+		numberExpected  = "01"
+		yearExpected    = "1977"
 	)
 
 	tag, err := Parse(exampleFilename)
